@@ -91,7 +91,7 @@ class Add extends Operation
         $replacementValue = $this->getReplacementValue();
 
         if ($get === null && $lastPointerPart !== Pointer::LAST_ARRAY_ELEMENT_CHAR) {
-            if (ctype_digit($lastPointerPart) && $lastPointerPart > count($rootGet)) {
+            if (ctype_digit($lastPointerPart) && (is_array($rootGet) && $lastPointerPart > count($rootGet))) {
                 if ($rootPointer == $lastPointerPart && is_array($targetDocument)) {
                     if ((int) $lastPointerPart <= count($targetDocument) + 1) {
                         array_splice($targetDocument, $lastPointerPart, 0, $replacementValue);
