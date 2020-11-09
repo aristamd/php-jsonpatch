@@ -78,7 +78,7 @@ class Document
      */
     private function isEmptyPatchDocument($patchDocument)
     {
-        return (empty($patchDocument) || !is_array($patchDocument) || ( (!is_array($patchDocument)) || count($patchDocument) === 0));
+        return (empty($patchDocument) || !is_array($patchDocument) || count($patchDocument) === 0);
     }
 
     /**
