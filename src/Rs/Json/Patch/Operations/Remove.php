@@ -69,7 +69,7 @@ class Remove extends Operation
         $pointerPart = array_shift($pointerParts);
 
         if (is_array($json) && isset($json[$pointerPart])) {
-            if ( !is_array($pointerPart) || count($pointerParts) === 0 ) {
+            if (count($pointerParts) === 0) {
                 unset($json[$pointerPart]);
                 if (ctype_digit($pointerPart)) {
                     $json = array_values($json);
@@ -81,7 +81,7 @@ class Remove extends Operation
                 );
             }
         } elseif (is_object($json) && isset($json->{$pointerPart})) {
-            if ( !is_array($pointerParts) || count($pointerParts) === 0) {
+            if (count($pointerParts) === 0) {
                 unset($json->{$pointerPart});
             } else {
                 $this->remove(
